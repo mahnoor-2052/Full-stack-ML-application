@@ -1,0 +1,25 @@
+Proposed Novelty (to be implemented later)
+
+Current work: Random Forest model predicts diabetic/non-diabetic from 21 health
+indicators (CDC BRFSS 2015, 253,680 rows), served by a Flask API and an Angular form,
+with GitHub Actions CI/CD and a GitHub Pages demo. The published paper's model only
+gives a diabetic or non-diabetic label.
+
+Planned novelty:
+1. Risk levels: convert the model's diabetes probability into Low, Moderate or High
+   risk, so a person who is not diabetic now but has High risk is flagged as
+   likely to become diabetic soon.
+2. Explainable predictions: for each person, change one answer at a time and show
+   which inputs (e.g. BMI, high blood pressure, age) pushed the risk up, and which
+   protect them, for both diabetic and non-diabetic results.
+3. Prevention advice: show general lifestyle measures for the factors a person can
+   change (weight, physical activity, blood pressure, cholesterol, diet, smoking,
+   alcohol), with the estimated change in risk where the data supports it.
+4. Corrected evaluation and calibration: apply SMOTE on the training data only (the
+   paper's test table suggests it was applied before the split), keep a real test
+   set, report recall, precision, AUC and Brier score, and check that predicted
+   probabilities match the real diabetes rate.
+
+Expected outcome: a more honest, explainable and useful prediction tool that gives
+risk level, reasons and prevention advice, not only a diabetic or non-diabetic label.
+(Research/teaching prototype only. Not medical advice.)
